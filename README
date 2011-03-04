@@ -1,0 +1,43 @@
+Shao-Chuan Wang
+Computer Science
+Columbia University
+
+sw2644 AT columbia DOT edu
+
+A Visual Information Retrieval System.
+
+This system recognizes a sequence of predefined gestures. 
+If the user input the correct sequence, the visual lock 
+will be unlocked.
+
+EXECUTION ENVIRONMENT
+=====================================
+The codes were tested under MacOS, but should be also 
+working under Linux system.
+
+
+HOW TO INSTALL?
+=====================================
+You need python 2.5.1 (or newer version) and numpy 1.5.1 
+(or newer). You still have to install OpenCV for python, 
+which can be downloaded from 
+http://sourceforge.net/projects/opencvlibrary/
+
+After compiling the OpenCV library, move cv.so to the 
+python 3rd library path. Or you can move cv.so to your 
+working directory.
+
+
+HOW TO RUN?
+=====================================
+
+1. Video capturing from the camera:
+ $ python GestureLock.py -g sample_grammar.gmr
+
+2. Retrieving frames from a video file:
+ $ python GestureLock.py -g sample_grammar.gmr -i video.mp4
+
+3. Select the output image folder:
+ $ python GestureLock.py -g sample_grammar.gmr -o output_folder
+
+
