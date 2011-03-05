@@ -16,7 +16,7 @@ working under Linux system.
 HOW TO INSTALL?
 =====================================
 You need python 2.5.1 (or newer version) and numpy 1.5.1 
-(or newer), python image library 1.1.7 and cython 0.13 
+(or newer), scipy 0.7.0, python image library 1.1.7 and cython 0.13 
 (or newer).
 
 Building by executing the script.
@@ -26,4 +26,13 @@ HOW TO RUN?
 =====================================
 
 1. Executing the visual information retrieval using color
-  $ python main.py
+  $ python main.py color
+
+2. Executing the visual information retrieval using texture
+  $ python main.py texture
+
+3. Executing the visual information retrieval using both color and texture
+  $ python main.py color texture
+
+4. Plotting the scatter plot.
+  $ python main.py scatter
