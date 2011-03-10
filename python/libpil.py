@@ -8,6 +8,7 @@
 import pdb
 import matplotlib.pyplot as plt
 import matplotlib.mpl as mpl
+import colorsys
 
 import array
 try:
@@ -44,7 +45,10 @@ def array2PIL(arr, size):
     else:
         raise ConversionException("I don't know how to convert this array.")
 
+
 def concat_imgs(img1, img2, *args, **argd):
+    ''' Concatenate PIL image.
+    '''
     ori = argd.get('ori', 'v')
     imgs = [img1, img2]
     if args:
@@ -79,11 +83,7 @@ def hist(grayimg, bins=20, rang=(0,255), plot=False):
     if plot:
         fig = plt.figure()
         ax = fig.add_subplot(111)
-        #bincenters = 0.5*(edges[1:]+edges[:-1])
         ax.bar(edges[:-1], hi, edges[1]-edges[0], facecolor='green', alpha=0.75)
-        #h2, edges2, patches = ax.hist(grayimg.flatten(), 
-        #                bins, rang, normed=True, facecolor='green', alpha=0.75)
-        #assert all(edges2 == edges)
         plt.show()
     
     return hi, edges
@@ -99,7 +99,6 @@ def rgbarr2gray(rgbarr):
     r,g,b = split3array(rgbarr)
     return 0.3*r+0.59*g+0.11*b
 
-import colorsys
 
 def rgbarr2hsvarr(rgbarr):
     r,g,b = split3array(rgbarr)
@@ -122,9 +121,7 @@ def lapacian(grayarr):
     kernel[1,1] = 8.0
     return convolve2d(grayarr, kernel, fft=True)
 
-import profile
 
-@profile.timing
 def rgbhist(rgbarr, rbins=4, gbins=8, bbins=4, blackbin=[]):
     cdef int i, j, w, h
     cdef int r, g, b
@@ -151,7 +148,7 @@ def laphist(grayarr, bins=400):
     lap = lapacian(grayarr)
     return hist(lap, bins, rang=(-256*8, 256*8))[0]
 
-@profile.timing
+
 def onenorm_inverse(h1, h2):
     dist = sum( numpy.abs(h1 - h2) ) / 2 # assume h1, h2 are L1-normalized
     return 1 - dist
