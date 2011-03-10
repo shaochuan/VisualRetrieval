@@ -16,8 +16,8 @@ working under Linux system.
 HOW TO INSTALL?
 =====================================
 You need python 2.5.1 (or newer version) and numpy 1.5.1 
-(or newer), scipy 0.7.0, python image library 1.1.7 and cython 0.13 
-(or newer).
+(or newer), scipy 0.7.0, matplotlib 1.0.1, python image 
+library 1.1.7 and cython 0.13 (or newer).
 
 Building by executing the script.
   $ sh install.sh
